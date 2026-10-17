@@ -1,0 +1,19 @@
+if SHIELD_HITEK68_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Hitek68"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_HITEK68_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Hitek68"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+endif

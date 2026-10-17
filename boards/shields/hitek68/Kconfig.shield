@@ -1,0 +1,15 @@
+if SHIELD_HITEK68_LEFT || SHIELD_HITEK68_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_BLE
+    default y
+
+endif
+
+config SHIELD_HITEK68_LEFT
+    def_bool $(shields_list_contains,hitek68_left)
+
+config SHIELD_HITEK68_RIGHT
+    def_bool $(shields_list_contains,hitek68_right)
