@@ -6,9 +6,10 @@
     behaviors {
         caps_bt: caps_bt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
-            bindings = <&bt BT_NXT>, <&kp CAPS>;
+            flavor = "tap-unless-interrupted";
+            bindings = <&bt>, <&kp>;
         };
     };
 
@@ -25,9 +26,10 @@
          * Position 92 (right thumb, bottom-outer) is &tog 1 on both
          * layers: it switches Windows -> Mac and Mac -> Windows.
          *
-         * Caps (position 16) uses the custom caps_bt hold-tap:
-         * tap = Caps Lock, hold = &bt BT_NXT (hop to the next
-         * Bluetooth profile). Layer 2 is unused.
+         * Caps (position 16) uses the custom caps_bt hold-tap
+         * (&caps_bt BT_NXT_CMD CAPS): tap = Caps Lock, a clean
+         * uninterrupted hold = next Bluetooth profile (BT_NXT).
+         * Layer 2 is unused.
          *
          * Position 31 / 79 = encoder push switch (matrix ROW3/COL7).
          * Encoder push (ROW3/COL7): left = play/pause, right = mute.
@@ -37,7 +39,7 @@
                 /* LEFT (0-47) */
                 &kp ESC    &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &none &none
                 &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T  &kp GRAVE &none
-                &caps_bt    &kp A  &kp S  &kp D  &kp F  &kp G  &kp LBKT  &none
+                &caps_bt BT_NXT_CMD CAPS  &kp A  &kp S  &kp D  &kp F  &kp G  &kp LBKT  &none
                 &kp LSHIFT &kp Z  &kp X  &kp C  &kp V  &kp B  &kp RBKT  &kp C_PP
                 &none &none &none &none &kp BSPC &kp SPACE &kp LCTRL &none
                 &none &none &none &none &kp DEL  &kp LGUI  &kp LALT  &none
@@ -58,7 +60,7 @@
                 /* LEFT (0-47) */
                 &kp ESC    &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &none &none
                 &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T  &kp GRAVE &none
-                &caps_bt    &kp A  &kp S  &kp D  &kp F  &kp G  &kp LBKT  &none
+                &caps_bt BT_NXT_CMD CAPS  &kp A  &kp S  &kp D  &kp F  &kp G  &kp LBKT  &none
                 &kp LSHIFT &kp Z  &kp X  &kp C  &kp V  &kp B  &kp RBKT  &kp C_PP
                 &none &none &none &none &kp BSPC &kp SPACE &kp LGUI &none
                 &none &none &none &none &kp DEL  &kp LCTRL &kp LALT &none
